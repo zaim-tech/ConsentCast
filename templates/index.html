@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Viewer</title>
+  <style>
+    body{margin:0;background:#111827;color:#e5e7eb;font:16px system-ui,sans-serif}
+    main{max-width:960px;margin:0 auto;padding:24px}h1{margin-top:0}
+    .screen{background:#000;aspect-ratio:16/9;display:grid;place-items:center;border-radius:10px;overflow:hidden}
+    img{width:100%;height:100%;object-fit:contain}.notice{color:#9ca3af;margin:12px 0}a{color:#93c5fd;margin-right:12px}
+    button{background:#1f2937;color:#e5e7eb;border:none;padding:8px 16px;border-radius:4px;cursor:pointer}
+  </style>
+</head>
+<body><main>
+  <h1>Local Broadcast Viewer</h1>
+  <p class="notice">This viewer shows the latest in-memory broadcast frame.</p>
+  <div class="screen"><img src="/stream.mjpg" alt="Live broadcast"></div>
+  <button onclick="saveCurrentFrame()">Download Current Frame</button>
+  <script>
+    // Call deliberately from the console to download the latest broadcast frame.
+    window.saveCurrentFrame=async()=>{
+      const response=await fetch('/snapshot.jpg');
+      if(!response.ok){alert('No broadcast frame is available yet.');return;}
+      const link=document.createElement('a');link.href=URL.createObjectURL(await response.blob());
+      link.download='broadcast-frame.jpg';link.click();URL.revokeObjectURL(link.href);
+    };
+  </script>
+</main></body>
+</html>
