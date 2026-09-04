@@ -12,6 +12,61 @@ This project is provided only for authorized cybersecurity awareness, training, 
 
 Use it only on devices, accounts, and networks that you own or are explicitly authorized to test. The author is not responsible for misuse, damage, privacy violations, or illegal activity resulting from this software.
 
+## Installation
+
+Clone the repository first:
+
+```bash
+git clone https://github.com/zaim-tech/ConsentCast.git
+cd ConsentCast
+```
+
+### Windows
+
+Open PowerShell or Command Prompt and run:
+
+```powershell
+py -m venv .venv
+.venv\Scripts\activate
+py -m pip install -r requirement.txt
+py main.py
+```
+
+### Linux and macOS
+
+Open a terminal and run:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirement.txt
+python3 main.py
+```
+
+### Termux on Android
+
+Install Termux from a trusted source, then run:
+
+```bash
+pkg update
+pkg install python git
+git clone https://github.com/zaim-tech/ConsentCast.git
+cd ConsentCast
+python -m pip install -r requirement.txt
+python main.py
+```
+
+### Supported Platforms
+
+ConsentCast supports platforms that can run Python, Flask, and a modern browser:
+
+- Windows 10 or newer
+- Linux distributions with Python 3.10 or newer
+- macOS with Python 3.10 or newer
+- Android through Termux
+
+The local server binds to `127.0.0.1`. Camera permission works in modern browsers such as Chrome, Edge, Firefox, and Safari. Use `localhost` or `127.0.0.1` for camera access because browsers restrict camera permissions on ordinary insecure remote addresses.
+
 ## Requirements
 
 - Python 3.10 or newer
