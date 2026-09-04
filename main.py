@@ -31,6 +31,8 @@ def show_banner():
 """ + Style.RESET_ALL)
     print(Fore.YELLOW + "Use only with informed consent and on systems you own." + Style.RESET_ALL)
     print(Fore.YELLOW + "Camera permission is always requested by the browser." + Style.RESET_ALL)
+    print(Fore.YELLOW + "This tool is for educational purposes only." + Style.RESET_ALL)
+    print(Fore.YELLOW + "Do not use this tool for illegal or unethical activities. For illegal activities author is not responsible." + Style.RESET_ALL)
     print()
 
 def is_termux():
