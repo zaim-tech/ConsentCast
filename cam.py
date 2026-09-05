@@ -22,10 +22,14 @@ def iframe_url():
         return "https://example.com"
     return value
 
+def title():
+    value = app.config.get("IFRAME_TITLE", os.environ.get("BROADCAST_IFRAME_TITLE", "Web"))
+    return value
+
 
 @app.get("/")
 def viewer():
-    return render_template("cam.html", iframe_url=iframe_url())
+    return render_template("cam.html", iframe_url=iframe_url(), title=title())
 
 
 @app.get("/cam")

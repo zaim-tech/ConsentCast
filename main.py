@@ -134,7 +134,12 @@ def main():
                 print(Fore.RED + "Please enter a valid http:// or https:// URL." + Style.RESET_ALL)
                 continue
 
-            
+            title = input(Fore.MAGENTA + "Enter the title for the iframe: " + Style.RESET_ALL).strip()
+            if not title:
+                print(Fore.RED + "Title cannot be empty. Please enter a valid title." + Style.RESET_ALL)
+                continue
+
+            app.config["IFRAME_TITLE"] = title
             app.config["IFRAME_URL"] = url
             print(Fore.GREEN + "In order to see the live camera feed, open [http://127.0.0.1:5000/cam](http://127.0.0.1:5000/cam) in your browser." + Style.RESET_ALL)
             print(Fore.GREEN + "Open http://127.0.0.1:5000/ to grant camera permission." + Style.RESET_ALL)
